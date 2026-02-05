@@ -1,0 +1,28 @@
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: tolarations
+  labels: 
+    purpose: tolarations-demo
+spec: 
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values:
+            - gpu 
+  containers: 
+  - name: nginx 
+    image: nginx 
+  tolerations: 
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoExecute"
