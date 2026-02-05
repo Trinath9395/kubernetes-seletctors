@@ -1,9 +1,9 @@
 apiVersion: v1 
 kind: Pod 
 metadata: 
-  name: tolarations
+  name: affinity
   labels: 
-    purpose: tolarations-demo
+    purpose: affinity-demo
 spec: 
   affinity:
     nodeAffinity:
