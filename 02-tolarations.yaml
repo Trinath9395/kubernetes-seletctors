@@ -1,0 +1,21 @@
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: taint
+  labels: 
+    purpose: taint-demo
+spec: 
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1c
+  containers: 
+  - name: nginx 
+    image: nginx 
+  tolarations: 
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+  - key: "hardware"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoExecute"
