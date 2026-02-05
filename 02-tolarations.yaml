@@ -1,9 +1,9 @@
 apiVersion: v1 
 kind: Pod 
 metadata: 
-  name: taint
+  name: tolarations
   labels: 
-    purpose: taint-demo
+    purpose: tolarations-demo
 spec: 
   nodeSelector:
     topology.kubernetes.io/zone: us-east-1c
